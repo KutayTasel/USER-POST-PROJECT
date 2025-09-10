@@ -75,9 +75,9 @@ npm run lint # Lint kontrolü
 npm run lint:fix # Lint düzeltme
 npm run type-check # TS tip kontrolü
 
-Proje Linki: https://github.com/username/post-project
+Proje Linki: https://github.com/KutayTasel/USER-POST-PROJECT
 
-Live Demo: [https://post-project.vercel.app](https://post-project.vercel.app)
+Live Demo: https://user-post-project-2iucjdz04-kutays-projects-ac434e87.vercel.app
 
 # INGILIZCE
 
@@ -146,6 +146,6 @@ npm run lint # Lint check
 npm run lint:fix # Lint fix
 npm run type-check # Type checking
 
-Project Link: https://github.com/username/post-project
+Project Link: https://github.com/KutayTasel/USER-POST-PROJECT
 
-Live Demo: [https://post-project.vercel.app](https://post-project.vercel.app)
+Live Demo: https://user-post-project-2iucjdz04-kutays-projects-ac434e87.vercel.app
