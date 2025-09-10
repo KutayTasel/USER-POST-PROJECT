@@ -77,7 +77,7 @@ npm run type-check # TS tip kontrolü
 
 Proje Linki: https://github.com/KutayTasel/USER-POST-PROJECT
 
-Live Demo: https://user-post-project-2iucjdz04-kutays-projects-ac434e87.vercel.app
+Live Demo: https://user-post-project.vercel.app
 
 # INGILIZCE
 
@@ -148,4 +148,4 @@ npm run type-check # Type checking
 
 Project Link: https://github.com/KutayTasel/USER-POST-PROJECT
 
-Live Demo: https://user-post-project-2iucjdz04-kutays-projects-ac434e87.vercel.app
+Live Demo: https://user-post-project.vercel.app
