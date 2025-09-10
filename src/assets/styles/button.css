@@ -1,0 +1,596 @@
+:root {
+  --ultra-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --ultra-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+  --ultra-neon: #00ffff;
+  --ultra-cyber: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  --ultra-glass: rgba(255, 255, 255, 0.1);
+  --ultra-plasma: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+  --ultra-hologram: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0, #ee82ee, #9370db);
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.25);
+
+  --trf: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --opacity: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --bg: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ultra-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  pointer-events: auto !important;
+  z-index: 1;
+
+  transition: var(--trf), var(--shadow), var(--opacity), var(--bg);
+}
+
+.ultra-button:focus {
+  outline: none;
+}
+.ultra-button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.ultra-button__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  transition: var(--opacity), var(--trf);
+}
+
+.ultra-button__text {
+  line-height: 1;
+  transition: var(--opacity), var(--trf);
+}
+
+.ultra-button__icon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.ultra-button__icon--left {
+  margin-right: 4px;
+}
+.ultra-button__icon--right {
+  margin-left: 4px;
+}
+
+.ultra-button__spinner {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+.ultra-button__spinner-ring {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: ultra-spin 1s linear infinite;
+}
+@keyframes ultra-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ultra-button--xs {
+  padding: 8px 12px;
+  font-size: 12px;
+  border-radius: 8px;
+  min-height: 28px;
+}
+.ultra-button--sm {
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 10px;
+  min-height: 36px;
+}
+.ultra-button--md {
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 12px;
+  min-height: 44px;
+}
+.ultra-button--lg {
+  padding: 16px 24px;
+  font-size: 18px;
+  border-radius: 14px;
+  min-height: 52px;
+}
+.ultra-button--xl {
+  padding: 20px 32px;
+  font-size: 20px;
+  border-radius: 16px;
+  min-height: 60px;
+}
+.ultra-button--xxl {
+  padding: 24px 40px;
+  font-size: 24px;
+  border-radius: 20px;
+  min-height: 72px;
+}
+
+.ultra-button__bg {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: var(--opacity), var(--bg);
+  pointer-events: none;
+}
+.ultra-button__bg--primary {
+  z-index: 1;
+}
+.ultra-button__bg--secondary {
+  z-index: 2;
+  opacity: 0;
+}
+.ultra-button__bg--tertiary {
+  z-index: 3;
+  opacity: 0;
+}
+
+.ultra-button__effects {
+  position: absolute;
+  inset: 0;
+  pointer-events: none !important;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: 5;
+}
+.ultra-button__shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: var(--bg);
+  pointer-events: none !important;
+}
+.ultra-button__ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  transition: var(--trf), var(--opacity);
+  pointer-events: none !important;
+}
+.ultra-button__glow {
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  opacity: 0;
+  filter: blur(8px);
+  transition: var(--opacity);
+  pointer-events: none !important;
+  z-index: 0;
+}
+.ultra-button__particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none !important;
+}
+
+.ultra-button--primary {
+  background: var(--ultra-primary);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.ultra-button--primary .ultra-button__bg--primary {
+  background: var(--ultra-primary);
+}
+.ultra-button--primary .ultra-button__bg--secondary {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+.ultra-button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.ultra-button--primary:hover .ultra-button__bg--secondary {
+  opacity: 1;
+}
+.ultra-button--primary:active {
+  transform: translateY(0);
+}
+
+.ultra-button--ghost {
+  background: transparent;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+  box-shadow: var(--shadow-sm);
+}
+.ultra-button--ghost .ultra-button__bg--primary {
+  background: transparent;
+}
+.ultra-button--ghost .ultra-button__bg--secondary {
+  background: #f3f4f6;
+}
+.ultra-button--ghost:hover {
+  transform: translateY(-1px);
+  border-color: #d1d5db;
+}
+.ultra-button--ghost:hover .ultra-button__bg--secondary {
+  opacity: 1;
+}
+
+.ultra-button--gradient {
+  background: var(--ultra-gradient);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  background-size: 200% 200%;
+  animation: ultra-gradient-shift 3s ease infinite;
+  will-change: transform, box-shadow, background-position;
+}
+.ultra-button--gradient .ultra-button__bg--primary {
+  background: var(--ultra-gradient);
+  background-size: 200% 200%;
+}
+.ultra-button--gradient:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  animation-duration: 1s;
+}
+@keyframes ultra-gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.ultra-button--neon {
+  background: #000;
+  color: var(--ultra-neon);
+  border: 2px solid var(--ultra-neon);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.3),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+  text-shadow: 0 0 10px var(--ultra-neon);
+  will-change: transform, box-shadow;
+}
+.ultra-button--neon .ultra-button__glow {
+  background: var(--ultra-neon);
+}
+.ultra-button--neon:hover {
+  color: #000;
+  background: var(--ultra-neon);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 30px rgba(0, 255, 255, 0.6),
+    0 0 60px rgba(0, 255, 255, 0.4);
+  text-shadow: none;
+}
+.ultra-button--neon:hover .ultra-button__glow {
+  opacity: 0.8;
+}
+
+.ultra-button--hologram {
+  background: var(--ultra-hologram);
+  color: #fff;
+  background-size: 300% 300%;
+  animation: ultra-hologram 4s ease infinite;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  will-change: transform, box-shadow, background-position;
+}
+.ultra-button--hologram::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 70%
+  );
+  animation: ultra-hologram-scan 2s linear infinite;
+  pointer-events: none !important;
+}
+.ultra-button--hologram:hover {
+  transform: translateY(-3px) rotateX(5deg);
+  animation-duration: 1s;
+}
+@keyframes ultra-hologram {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes ultra-hologram-scan {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.ultra-button--cyber {
+  background: var(--ultra-cyber);
+  color: #000;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  will-change: transform, box-shadow;
+}
+.ultra-button--cyber::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, #00ff00, #00ffff, #ff00ff, #ffff00);
+  opacity: 0;
+  transition: var(--bg);
+  pointer-events: none !important;
+}
+.ultra-button--cyber:hover {
+  transform: translateY(-2px) perspective(1000px) rotateX(10deg);
+  box-shadow:
+    var(--shadow-xl),
+    0 0 30px rgba(67, 233, 123, 0.5);
+}
+.ultra-button--cyber:hover::before {
+  opacity: 0.1;
+}
+
+.ultra-button--glass {
+  background: var(--ultra-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow:
+    var(--shadow-md),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.ultra-button--glass .ultra-button__bg--secondary {
+  background: rgba(255, 255, 255, 0.2);
+}
+.ultra-button--glass:hover {
+  transform: translateY(-1px);
+  backdrop-filter: blur(25px) saturate(200%);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.ultra-button--glass:hover .ultra-button__bg--secondary {
+  opacity: 1;
+}
+.ultra-button--plasma {
+  background: var(--ultra-plasma);
+  color: #fff;
+  background-size: 400% 400%;
+  animation: ultra-plasma 3s ease infinite;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  will-change: transform, box-shadow, background-position;
+}
+.ultra-button--plasma::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+  animation: ultra-plasma-pulse 2s ease-in-out infinite;
+  pointer-events: none !important;
+}
+.ultra-button--plasma:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    var(--shadow-xl),
+    0 0 40px rgba(255, 0, 110, 0.4);
+  animation-duration: 0.5s;
+}
+@keyframes ultra-plasma {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes ultra-plasma-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.ultra-button--glow:hover .ultra-button__glow {
+  opacity: 0.6;
+}
+.ultra-button--pulse {
+  animation: ultra-pulse 2s ease-in-out infinite;
+}
+@keyframes ultra-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+.ultra-button--ripple:active .ultra-button__ripple {
+  animation: ultra-ripple 0.6s ease-out;
+}
+@keyframes ultra-ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+.ultra-button--magnetic {
+  transition: var(--trf);
+}
+.ultra-button--magnetic:hover {
+  transform: translateY(-8px);
+}
+.ultra-button--particle:hover .ultra-button__particles::before,
+.ultra-button--particle:hover .ultra-button__particles::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 50%;
+  animation: ultra-particles 1s ease-out infinite;
+  pointer-events: none !important;
+}
+.ultra-button--particle:hover .ultra-button__particles::before {
+  top: 20%;
+  left: 20%;
+  animation-delay: 0.1s;
+}
+.ultra-button--particle:hover .ultra-button__particles::after {
+  bottom: 20%;
+  right: 20%;
+  animation-delay: 0.3s;
+}
+@keyframes ultra-particles {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+.ultra-button--wave:hover .ultra-button__shine {
+  left: 100%;
+}
+
+.ultra-button--loading {
+  cursor: wait;
+}
+.ultra-button--loading .ultra-button__content {
+  opacity: 0.7;
+}
+.ultra-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none !important;
+  transform: none !important;
+}
+.ultra-button--disabled * {
+  animation: none !important;
+}
+
+@media (max-width: 768px) {
+  .ultra-button--lg {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+  .ultra-button--xl {
+    padding: 16px 24px;
+    font-size: 18px;
+  }
+  .ultra-button--xxl {
+    padding: 18px 28px;
+    font-size: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ultra-button,
+  .ultra-button *,
+  .ultra-button::before,
+  .ultra-button::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .ultra-button {
+    border: 2px solid;
+  }
+  .ultra-button--ghost {
+    border-width: 3px;
+  }
+}
+
+@media print {
+  .ultra-button {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    border: 2px solid #000 !important;
+  }
+}
+
+.ultra-button--light {
+  background: #f9fafb;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  box-shadow: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  transition:
+    var(--trf),
+    var(--shadow),
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
+}
+.ultra-button--light:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+.ultra-button--light:active {
+  background: #e5e7eb;
+  transform: translateY(0);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.ultra-button--light:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}

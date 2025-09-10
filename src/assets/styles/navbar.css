@@ -1,0 +1,225 @@
+.navbar-container {
+  border-bottom: 1px solid rgb(229, 231, 235);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar-container {
+    border-bottom-color: rgb(55, 65, 81);
+    background-color: rgba(23, 23, 23, 0.95);
+    box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+.navbar-inner {
+  margin: 0 auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .navbar-inner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-inner {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-menu-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  color: rgb(75, 85, 99);
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    transform 0.1s ease-in-out;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.navbar-menu-button:hover {
+  color: rgb(17, 24, 39);
+  background-color: rgb(243, 244, 246);
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .navbar-menu-button {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar-menu-button {
+    color: rgb(209, 213, 219);
+  }
+
+  .navbar-menu-button:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(31, 41, 55);
+  }
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(37, 99, 235);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgb(37, 99, 235) 0%, rgb(59, 130, 246) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.025em;
+}
+
+.navbar-logo:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, rgb(29, 78, 216) 0%, rgb(37, 99, 235) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar-logo {
+    background: linear-gradient(135deg, rgb(96, 165, 250) 0%, rgb(147, 197, 253) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .navbar-logo:hover {
+    background: linear-gradient(135deg, rgb(59, 130, 246) 0%, rgb(96, 165, 250) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.navbar-center {
+  display: none;
+  flex: 1;
+  justify-content: center;
+  max-width: 28rem;
+  margin: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .navbar-center {
+    display: flex;
+  }
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-link-base {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    transform 0.1s ease-in-out;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent;
+}
+
+.navbar-link-active {
+  background-color: rgb(37, 99, 235);
+  color: white;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+}
+
+.navbar-link-active:hover {
+  background-color: rgb(29, 78, 216);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.4);
+}
+
+.navbar-link-inactive {
+  color: rgb(75, 85, 99);
+}
+
+.navbar-link-inactive:hover {
+  color: rgb(37, 99, 235);
+  background-color: rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.2);
+  transform: translateY(-1px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar-link-active {
+    background-color: rgb(59, 130, 246);
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+  }
+
+  .navbar-link-active:hover {
+    background-color: rgb(37, 99, 235);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4);
+  }
+
+  .navbar-link-inactive {
+    color: rgb(209, 213, 219);
+  }
+
+  .navbar-link-inactive:hover {
+    color: rgb(147, 197, 253);
+    background-color: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+}
+
+.navbar-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.navbar-home-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}

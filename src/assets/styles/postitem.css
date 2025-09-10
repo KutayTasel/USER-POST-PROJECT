@@ -1,0 +1,132 @@
+/* PostItem.css */
+.post-item-row {
+  border-top: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.post-item-row:hover {
+  background-color: #f9fafb;
+}
+
+.post-item-row__cell {
+  padding: 8px;
+}
+
+.post-item-row__user {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.post-item-row__id {
+  color: #9ca3af;
+}
+
+.post-item-row__title {
+  font-weight: 500;
+}
+
+.post-item-row__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.post-item-card {
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  height: auto;
+}
+
+.post-item-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-item-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.post-item-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-item-card__id {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.post-item-card__user {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.post-item-card__actions {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Responsive design */
+@media (min-width: 640px) {
+  .post-item-card {
+    height: 192px; /* h-48 equivalent */
+  }
+
+  .post-item-card__actions {
+    flex-direction: row;
+  }
+
+  .post-item-card__action-button {
+    width: auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 639px) {
+  .post-item-card__action-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Focus states for accessibility */
+.post-item-row:focus,
+.post-item-card:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

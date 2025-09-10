@@ -1,0 +1,213 @@
+/* UserCard Variables */
+:root {
+  --usercard-border-radius: 0.5rem;
+  --usercard-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --usercard-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --usercard-transition: all 0.2s ease;
+  --usercard-spacing-xs: 0.25rem;
+  --usercard-spacing-sm: 0.5rem;
+  --usercard-spacing-md: 0.75rem;
+  --usercard-spacing-lg: 1rem;
+}
+
+/* Row Variant Styles */
+.usercard-row {
+  border-top: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.usercard-row:hover {
+  background-color: #f9fafb;
+}
+
+.usercard-row-cell {
+  padding: 0.5rem;
+}
+
+.usercard-row-id {
+  color: #6b7280;
+}
+
+.usercard-row-name {
+  font-weight: 500;
+}
+
+.usercard-row-username {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.usercard-row-email {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.usercard-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Card Variant Styles */
+.usercard {
+  border-radius: var(--usercard-border-radius);
+  border: 1px solid #e5e7eb;
+  background: white;
+  box-shadow: var(--usercard-shadow-sm);
+  cursor: pointer;
+  transition: var(--usercard-transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--usercard-spacing-lg);
+  height: auto;
+}
+
+.usercard:hover {
+  box-shadow: var(--usercard-shadow-md);
+}
+
+.usercard:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Card Header */
+.usercard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.usercard-title {
+  font-size: 1rem;
+  font-weight: 600;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.usercard-id {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Card Content */
+.usercard-content {
+  flex: 1;
+}
+
+.usercard-username {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 0.25rem;
+}
+
+.usercard-email {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+/* Card Actions */
+.usercard-actions {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.usercard-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .usercard {
+    height: 12rem; /* sm:h-48 */
+  }
+
+  .usercard-actions {
+    flex-direction: row;
+  }
+
+  .usercard-btn {
+    width: auto;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .usercard {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
+  }
+
+  .usercard:hover {
+    background: #111827;
+    border-color: #4b5563;
+  }
+
+  .usercard-row {
+    border-color: #374151;
+  }
+
+  .usercard-row:hover {
+    background-color: #111827;
+  }
+
+  .usercard-row-id,
+  .usercard-id {
+    color: #9ca3af;
+  }
+
+  .usercard-row-name,
+  .usercard-title {
+    color: #f9fafb;
+  }
+
+  .usercard-row-username,
+  .usercard-row-email,
+  .usercard-username,
+  .usercard-email {
+    color: #d1d5db;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .usercard,
+  .usercard-row {
+    transition: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .usercard {
+    border-width: 2px;
+    border-color: #000;
+  }
+
+  .usercard:hover {
+    border-color: #000;
+    box-shadow: 0 0 0 2px #000;
+  }
+
+  .usercard-row {
+    border-width: 2px;
+  }
+
+  .usercard:focus-visible {
+    outline-width: 3px;
+  }
+}
